@@ -7,10 +7,10 @@ public class Constant {
         public static final long DELAY_NANO_SECOND = 17_000_000;
     }
     public static class BackGround{
-        public static final String PATH = "resource/bg.png";
+        public static final String PATH = "resources/background/background.jpg";
     }
     public static class TheEarth{
-        public static final String PATH ="resource/the_earth.jpg";
+        public static final String PATH ="resources/earth/earth1-fixed.png";
     }
 //    public static class Enemy{
 //        public static final int WAIT_Frame_COUNTER;
