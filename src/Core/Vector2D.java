@@ -3,6 +3,9 @@ package Core;
 public class Vector2D {
     public float x;
     public float y;
+    public float earthX = 400;
+    public float earthY = 400;
+
     public Vector2D(){
      this.x = 0.0f;
      this.x = 0.0f;
@@ -77,4 +80,44 @@ public class Vector2D {
         float y=(float) (this.x*Math.sin(angle)+this.y*Math.cos(angle));
         return new Vector2D(x,y);
     }
+    public double khoangcach (float positionX, float positionY){
+        double khoangcach;
+        double u,v;
+        u = positionX - earthX;
+        v = positionY - earthY;
+        khoangcach = Math.sqrt( u * u + v * v );
+        return khoangcach;
+    }
+    public Vector2D vectorhuongtam (float positionX,float positionY){
+        return new Vector2D(positionX-earthX,positionY-earthY);
+    }
+
+    public Vector2D gravity (float positionX, float positionY){
+        this.x = (float) (this.x + (positionX-earthX)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));
+        this.y = (float) (this.y + (positionY-earthY)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));
+        return new Vector2D(this.x,this.y);
+    }
+
+    public Vector2D push (float positionX,float positionY){
+        this.x = (float) (this.x - (positionX-earthX)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));
+        this.y = (float) (this.y - (positionY-earthY)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));
+        return new Vector2D(this.x,this.y);
+    }
+
+//    public Vector2D broken(Vector2D vector2D){
+//        float x1;
+//        int y1 = 0;
+//        int u,v;
+//
+//        u = (int)vector2D.x;
+//        v = (int)vector2D.y;
+//        Random randomX = new Random(7);
+//        Random randomY = new Random(7);
+////        x1 = vector2D.x + randomX - 3  ;
+//
+//
+//        return new Vector2D(x1,y1);
+//    }
+
+
 }
