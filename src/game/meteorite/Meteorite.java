@@ -13,7 +13,7 @@ public class Meteorite extends GameObject implements PhysicBody {
 
     public Meteorite(){
         this.boxCollider = new BoxCollider(20,20);
-        this.renderer = new ImageRenderer("resources/meteorite/enemy_square_small.png");
+        this.renderer = new ImageRenderer("resources/meteorite/meteorite_small.png");
         this.velocity = new Vector2D();
     }
 
