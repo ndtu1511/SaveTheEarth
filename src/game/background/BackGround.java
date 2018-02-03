@@ -4,8 +4,8 @@ import Core.GameObject;
 import Renderer.ImageRenderer;
 import utils.Utils;
 
-public class Background extends GameObject {
-    public Background() {
+public class BackGround extends GameObject {
+    public BackGround() {
         this.renderer = new ImageRenderer("resources/background/background.jpg");
     }
 }
