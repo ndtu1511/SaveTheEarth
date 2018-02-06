@@ -1,9 +1,9 @@
 package game.meteorite;
 
-import Core.FrameCounter;
-import Core.GameObject;
-import Core.GameObjectManager;
-import Core.Vector2D;
+import core.FrameCounter;
+import core.GameObject;
+import core.GameObjectManager;
+import core.Vector2D;
 
 import java.util.Random;
 
@@ -13,7 +13,7 @@ public class MeteoriteBorn extends GameObject {
     private Integer count;
 
     public MeteoriteBorn() {
-        this.frameCounter = new FrameCounter(80);
+        this.frameCounter = new FrameCounter(50);
         this.random = new Random();
         this.count = 0;
     }

@@ -1,8 +1,8 @@
 
 package game.meteorite;
 
-import Core.GameObject;
-import Core.Vector2D;
+import core.GameObject;
+import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
@@ -16,7 +16,9 @@ public class Meteorite extends GameObject implements PhysicBody {
         this.renderer = new ImageRenderer("resources/meteorite/meteorite_small.png");
         this.velocity = new Vector2D();
     }
-
+    public void getHit() {
+        this.isAlive = false;
+    }
 
     @Override
     public void run(){
@@ -31,7 +33,7 @@ public class Meteorite extends GameObject implements PhysicBody {
 
     @Override
     public BoxCollider getBoxCollider() {
-        return this.boxCollider;
+        return boxCollider;
     }
 
 }

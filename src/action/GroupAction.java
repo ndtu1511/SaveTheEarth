@@ -1,6 +1,6 @@
 package action;
 
-import Core.GameObject;
+import core.GameObject;
 
 import java.util.Arrays;
 import java.util.List;

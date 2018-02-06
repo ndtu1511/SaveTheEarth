@@ -1,7 +1,7 @@
 package action;
 
-import Core.FrameCounter;
-import Core.GameObject;
+import core.FrameCounter;
+import core.GameObject;
 
 public class WaitAction implements Action {
     private FrameCounter frameCounter;

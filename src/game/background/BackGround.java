@@ -1,9 +1,8 @@
 package game.background;
 
-import Core.GameObject;
-import Core.Vector2D;
+import core.GameObject;
+import core.Vector2D;
 import Renderer.ImageRenderer;
-import utils.Utils;
 
 public class BackGround extends GameObject {
     public BackGround() {

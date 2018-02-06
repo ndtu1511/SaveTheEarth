@@ -1,6 +1,6 @@
 package Renderer;
 
-import Core.Vector2D;
+import core.Vector2D;
 import utils.Utils;
 
 import java.awt.*;

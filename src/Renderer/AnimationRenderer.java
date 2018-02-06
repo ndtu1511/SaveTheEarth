@@ -1,7 +1,7 @@
 package Renderer;
 
-import Core.FrameCounter;
-import Core.Vector2D;
+import core.FrameCounter;
+import core.Vector2D;
 import utils.Utils;
 
 import java.awt.*;

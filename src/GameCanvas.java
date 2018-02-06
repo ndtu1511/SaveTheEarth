@@ -1,8 +1,8 @@
-import Core.GameObjectManager;
+import core.GameObjectManager;
 import constants.Constant;
 import game.background.BackGround;
-import game.background.TheEarth;
-import game.meteorite.Meteorite;
+import game.canon.Canon;
+import game.earth.Earth;
 import game.meteorite.MeteoriteBorn;
 
 import javax.swing.*;
@@ -22,7 +22,9 @@ public class GameCanvas extends JPanel{
         random = new Random();
         this.setupBackBuffer();
         this.setupBackGround();
-        this.setupMeteorite();
+        this.setupMeteoriteBorn();
+//        this.setupCannon();
+        this.setupEarth();
     }
     private void setupBackBuffer(){
         this.backBuffered = new BufferedImage(Constant.Windows.WIDTH,Constant.Windows.HEIGHT,BufferedImage.TYPE_4BYTE_ABGR);
@@ -30,11 +32,19 @@ public class GameCanvas extends JPanel{
     }
     private void setupBackGround(){
         GameObjectManager.instance.recycle(BackGround.class);
-        GameObjectManager.instance.recycle(TheEarth.class);
     }
-    private void setupMeteorite(){
+    private void setupEarth(){
+        GameObjectManager.instance.recycle(Earth.class);
+    }
+    private void setupMeteoriteBorn(){
         GameObjectManager.instance.recycle(MeteoriteBorn.class);
+
     }
+//    private void setupCannon(){
+//        GameObjectManager.instance.recycle(Canon.class);
+//
+//    }
+
     @Override
     protected void paintComponent(Graphics g) {
         g.drawImage(this.backBuffered,0,0,null);

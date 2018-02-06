@@ -1,6 +1,6 @@
 package action;
 
-import Core.GameObject;
+import core.GameObject;
 
 public class SequenceAction implements Action{
     private Action[] actions;

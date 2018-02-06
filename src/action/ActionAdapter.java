@@ -1,6 +1,6 @@
 package action;
 
-import Core.GameObject;
+import core.GameObject;
 
 public abstract class ActionAdapter implements Action {
     @Override

@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import Renderer.Renderer;
 import action.Action;

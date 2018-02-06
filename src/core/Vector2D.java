@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 public class Vector2D {
     public float x;
@@ -96,8 +96,10 @@ public class Vector2D {
 //    }
 
     public Vector2D gravity (float positionX, float positionY, float x, float y){
-        this.x = (float) (x - (5*(positionX-earthX))/((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
-        this.y = (float) (y - (5*(positionY-earthY))/((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
+        this.x = (float) (x - (10*(positionX-earthX))/
+                ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
+        this.y = (float) (y - (10*(positionY-earthY))/
+                ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
         return new Vector2D(this.x,this.y);
     }
 //    public Vector2D gravity(Vector2D vector2D){
