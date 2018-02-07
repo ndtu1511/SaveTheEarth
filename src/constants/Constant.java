@@ -11,6 +11,11 @@ public class Constant {
     }
     public static class TheEarth{
         public static final String PATH ="resources/earth/earth1-fixed.png";
+        public static final int positionX = Windows.WIDTH/2;
+        public static final int positionY = Windows.HEIGHT/2;
+    }
+    public static class Cannon{
+        public static final String PATH = "resources/cannon/cannon1-fixed.png";
     }
 //    public static class Enemy{
 //        public static final int WAIT_Frame_COUNTER;

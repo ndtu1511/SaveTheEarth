@@ -53,6 +53,9 @@ public class Vector2D {
     public float length(){
         return (float)Math.sqrt(this.x*this.x + this.y*this.y);
     }
+    public float length(Vector2D vector2D){
+        return (float)Math.sqrt(vector2D.x*vector2D.x + vector2D.y*vector2D.y);
+    }
     public Vector2D clone(){
         return new Vector2D(this.x,this.y);
     }
@@ -79,6 +82,11 @@ public class Vector2D {
         float x=(float) (this.x*Math.cos(angle)-this.y*Math.sin(angle));
         float y=(float) (this.x*Math.sin(angle)+this.y*Math.cos(angle));
         return new Vector2D(x,y);
+    }
+    public double angleWithAVector(Vector2D vector2D){
+        double angle = Math.toDegrees(Math.atan2(this.x-vector2D.x,this.y-vector2D.y));
+        angle = angle+Math.ceil(-angle/360)*360;
+        return angle;
     }
     public double khoangcach (float positionX, float positionY){
         double khoangcach;

@@ -1,7 +1,9 @@
+import Core.GameObject;
 import Core.GameObjectManager;
 import constants.Constant;
 import game.background.BackGround;
 import game.background.TheEarth;
+import game.canon.Cannon;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,6 +28,7 @@ public class GameCanvas extends JPanel{
     }
     private void setupBackGround(){
         GameObjectManager.instance.recycle(BackGround.class);
+        GameObjectManager.instance.recycle(Cannon.class);
         GameObjectManager.instance.recycle(TheEarth.class);
     }
     @Override
