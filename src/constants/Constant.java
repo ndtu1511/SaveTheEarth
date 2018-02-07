@@ -10,12 +10,18 @@ public class Constant {
         public static final String PATH = "resources/background/background.jpg";
     }
     public static class TheEarth{
-        public static final String PATH ="resources/earth/earth1-fixed.png";
-        public static final int positionX = Windows.WIDTH/2;
-        public static final int positionY = Windows.HEIGHT/2;
+        public static final String PATH ="resources/earth/earth.png";
+        public static final int POSITION_X = Windows.WIDTH/2;
+        public static final int POSITION_Y = Windows.HEIGHT/2;
     }
     public static class Cannon{
-        public static final String PATH = "resources/cannon/cannon1-fixed.png";
+        public static final String PATH = "resources/rocket/rocket5.png";
+    }
+    public static class CrossHair{
+        public static final String PATH = "resources/crosshair/cross_hair.png";
+    }
+    public static class Rocket{
+        public static final String PATH = "resources/rocket/rocket10.png";
     }
 //    public static class Enemy{
 //        public static final int WAIT_Frame_COUNTER;

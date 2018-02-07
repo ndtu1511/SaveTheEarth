@@ -1,13 +1,13 @@
 package game.background;
 
-import Core.GameObject;
-import Renderer.ImageRenderer;
 import constants.Constant;
-import utils.Utils;
+import core.GameObject;
+import core.Vector2D;
+import Renderer.ImageRenderer;
 
 public class BackGround extends GameObject {
     public BackGround() {
+        this.position = new Vector2D(400,400);
         this.renderer = new ImageRenderer(Constant.BackGround.PATH);
-        this.position.set(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2);
     }
 }

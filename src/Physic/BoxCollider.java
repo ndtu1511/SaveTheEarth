@@ -1,6 +1,6 @@
 package Physic;
 
-import Core.Vector2D;
+import core.Vector2D;
 
 import java.awt.*;
 

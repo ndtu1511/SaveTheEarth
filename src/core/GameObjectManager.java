@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import Physic.BoxCollider;
 import Physic.PhysicBody;

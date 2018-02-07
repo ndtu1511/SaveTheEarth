@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 public class Vector2D {
     public float x;
@@ -99,12 +99,20 @@ public class Vector2D {
     public Vector2D vectorhuongtam (float positionX,float positionY){
         return new Vector2D(positionX-earthX,positionY-earthY);
     }
+//    public Vector2D congvectorhuongtam (Vector2D vector2D){
+//        return Vector2D(x,y);
+//    }
 
-    public Vector2D gravity (float positionX, float positionY){
-        this.x = (float) (this.x + (positionX-earthX)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));
-        this.y = (float) (this.y + (positionY-earthY)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));
+    public Vector2D gravity (float positionX, float positionY, float x, float y){
+        this.x = (float) (x - (10*(positionX-earthX))/
+                ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
+        this.y = (float) (y - (10*(positionY-earthY))/
+                ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
         return new Vector2D(this.x,this.y);
     }
+//    public Vector2D gravity(Vector2D vector2D){
+//        return this.gravity(vector2D.x,vector2D.y);
+//    }
 
     public Vector2D push (float positionX,float positionY){
         this.x = (float) (this.x - (positionX-earthX)/(khoangcach(positionX,positionY))*(khoangcach(positionX,positionY)));

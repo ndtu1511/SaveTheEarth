@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import Renderer.Renderer;
 import action.Action;
@@ -10,6 +10,7 @@ public class GameObject {
     public Vector2D position;
     protected Renderer renderer;
     public boolean isAlive;
+    public Graphics graphics;
     private Vector<Action> actions;
     private Vector<Action> newActions = new Vector<>();
     public GameObject() {
@@ -31,6 +32,7 @@ public class GameObject {
     }
     public void render(Graphics graphics){
         if (this.renderer!=null) {
+            this.graphics=graphics;
             this.renderer.render(graphics, this.position);
         }
     }

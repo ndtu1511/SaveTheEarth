@@ -1,7 +1,6 @@
 package Input;
 
-import Core.Vector2D;
-import constants.Constant;
+import core.Vector2D;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
@@ -11,7 +10,7 @@ public class MouseMotionInput implements MouseMotionListener {
 
     public static MouseMotionInput instance = new MouseMotionInput();
     private MouseMotionInput() {
-        this.position = new Vector2D(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2-55);
+        this.position = new Vector2D(400.0f,100.0f);
     }
 
     @Override
@@ -20,7 +19,7 @@ public class MouseMotionInput implements MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        this.position.set(this.clamp(e.getX(),20.0f,780.0f),this.clamp(e.getY(),20.0f,780.0f));
+        this.position.set(clamp(e.getX(),20.0f,780.0f),clamp(e.getY(),0.0f,780.0f));
     }
     private float clamp(float value, float min, float max) {
         if (value < min) return min;
