@@ -13,7 +13,7 @@ public class MeteoriteBorn extends GameObject {
     private Integer count;
 
     public MeteoriteBorn() {
-        this.frameCounter = new FrameCounter(40);
+        this.frameCounter = new FrameCounter(80);
         this.random = new Random();
         this.count = 0;
     }

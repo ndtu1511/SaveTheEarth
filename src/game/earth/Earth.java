@@ -46,6 +46,9 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive = this.earthHP.run();
-
     }
+    public void hit(GameObject gameObject){
+        this.isAlive = this.earthHP.run();
+    }
+
 }

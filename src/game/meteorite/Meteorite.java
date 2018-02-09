@@ -16,8 +16,6 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
     private BoxCollider boxCollider;
     public Vector2D velocity;
 
-    public Earth earth;
-
     public Meteorite(){
         this.renderer = new ImageRenderer("resources/meteorite/meteorite_small.png");
         this.velocity = new Vector2D();
@@ -33,8 +31,12 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
             this.isAlive = false;
         }
         if(this.position.khoangcach(this.position.x,this.position.y)<=70){
-            this.getHit(earth);
-//            earth.hit = 0;
+            this.isAlive = false;
+            this.velocity = new Vector2D();
+            MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
+            meteoriteExplosive.position.set(this.position);
+            meteoriteExplosive.config();
+
         }
     }
 
