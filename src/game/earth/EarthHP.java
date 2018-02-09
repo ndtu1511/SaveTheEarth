@@ -26,6 +26,7 @@ public class EarthHP {
             return true;
         }
     }
+
     public void showHP(){
 
     }
