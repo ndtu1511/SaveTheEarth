@@ -10,12 +10,16 @@ import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
 import hit.HitObject;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class Meteorite extends GameObject implements PhysicBody, HitObject {
     protected BoxCollider boxCollider;
     private ImageRenderer imageRenderer;
     private MeteoriteHit meteoriteHit;
     public Vector2D velocity;
+//    private Clip clip;
     public Meteorite(){
         this.imageRenderer = new ImageRenderer(Constant.Meteorite.PATH);
         this.renderer = this.imageRenderer;
@@ -45,6 +49,7 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
         MeteoDeadAni meteoDeadAni = GameObjectManager.instance.recycle(MeteoDeadAni.class);
         meteoDeadAni.position.set(this.position);
         meteoDeadAni.run();
-        this.isAlive = false;
+//        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
+//        this.clip.start();
     }
 }

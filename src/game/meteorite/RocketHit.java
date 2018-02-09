@@ -2,6 +2,9 @@ package game.meteorite;
 
 import game.canon.Rocket;
 import hit.RunHitObject;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class RocketHit {
     private RunHitObject[] arrays;
