@@ -7,6 +7,8 @@ import game.background.Suction;
 import game.canon.Cannon;
 import game.earth.Earth;
 import game.meteorite.MeteoriteBorn;
+import game.meteorite_medium.MeteoriteMedium;
+import game.meteorite_medium.MeteoriteMediumBorn;
 import utils.AudioUtils;
 
 import javax.sound.sampled.Clip;
@@ -47,6 +49,7 @@ public class GameCanvas extends JPanel{
     }
     private void setupMeteoriteBorn(){
         GameObjectManager.instance.recycle(MeteoriteBorn.class);
+        GameObjectManager.instance.recycle(MeteoriteMediumBorn.class);
 
     }
     private void setupCannon(){
