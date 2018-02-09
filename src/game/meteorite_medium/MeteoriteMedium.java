@@ -34,7 +34,7 @@ public class MeteoriteMedium extends GameObject implements PhysicBody, HitObject
         if (this.position.x<=0||this.position.y<=0||this.position.x>=800||this.position.y>=800){
             this.isAlive = false;
         }
-        if(this.position.khoangcach(this.position.x,this.position.y)<=70){
+        if(this.position.khoangcach(this.position.x,this.position.y)<=50){
             this.isAlive = false;
             this.velocity = new Vector2D();
             MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);

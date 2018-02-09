@@ -13,7 +13,7 @@ public class MeteoriteBorn extends GameObject {
     private Integer count;
 
     public MeteoriteBorn() {
-        this.frameCounter = new FrameCounter(80);
+        this.frameCounter = new FrameCounter(100);
         this.random = new Random();
         this.count = 0;
     }
@@ -46,6 +46,13 @@ public class MeteoriteBorn extends GameObject {
             }
 //            GameObjectManager.instance.add(meteorite);
             this.frameCounter.reset();
+            if(this.frameCounter.max>=50){
+                this.frameCounter.max -= 2;
+            }
+            if (this.frameCounter.max==52){
+                maxvelocity++;
+            }
+
         }
     }
 }

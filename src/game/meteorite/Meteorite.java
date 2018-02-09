@@ -9,6 +9,7 @@ import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
+import game.meteorite.explosive.MeteoriteExplosive;
 import hit.HitObject;
 import utils.AudioUtils;
 
@@ -37,6 +38,15 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
             this.isAlive = false;
         }
         this.meteoriteHit.run(this);
+
+        if(this.position.khoangcach(this.position.x,this.position.y)<=50){
+            this.isAlive = false;
+            this.velocity = new Vector2D();
+            MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
+            meteoriteExplosive.position.set(this.position);
+            meteoriteExplosive.config();
+//            earth.hit = 0;
+        }
     }
 
     @Override
