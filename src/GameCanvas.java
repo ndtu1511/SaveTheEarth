@@ -3,6 +3,7 @@ import core.GameObjectManager;
 import constants.Constant;
 import game.CrossHair.CrossHair;
 import game.background.BackGround;
+import game.background.Suction;
 import game.canon.Cannon;
 import game.earth.Earth;
 import game.meteorite.MeteoriteBorn;
@@ -35,6 +36,7 @@ public class GameCanvas extends JPanel{
     }
     private void setupBackGround(){
         GameObjectManager.instance.recycle(BackGround.class);
+        GameObjectManager.instance.recycle(Suction.class);
     }
     private void setupEarth(){
         GameObjectManager.instance.recycle(Earth.class);
