@@ -1,16 +1,15 @@
-package game.meteorite;
+package game.earth;
 
-import core.GameObjectManager;
-import Physic.BoxCollider;
-import game.earth.Earth;
+import game.meteorite.Meteorite;
 import hit.RunHitObject;
 
-public class HitEarth {
+public class EarthHit {
     private RunHitObject[] arrays;
 
-    public HitEarth() {
+    public EarthHit() {
         this.arrays = new RunHitObject[]{
                 new RunHitObject(Meteorite.class),
+//                new RunHitObject(Square.class),
         };
     }
 

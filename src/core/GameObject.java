@@ -32,8 +32,10 @@ public class GameObject {
     }
     public void render(Graphics graphics){
         if (this.renderer!=null) {
-            this.graphics=graphics;
-            this.renderer.render(graphics, this.position);
+            if(this.isAlive!=false){
+                this.graphics=graphics;
+                this.renderer.render(graphics, this.position);
+            }
         }
     }
 }

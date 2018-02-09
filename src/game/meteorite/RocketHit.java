@@ -1,22 +1,21 @@
 package game.meteorite;
 
-import core.GameObjectManager;
-import Physic.BoxCollider;
-import game.earth.Earth;
+import game.canon.Rocket;
 import hit.RunHitObject;
 
-public class HitEarth {
+public class RocketHit {
     private RunHitObject[] arrays;
 
-    public HitEarth() {
+    public RocketHit() {
         this.arrays = new RunHitObject[]{
                 new RunHitObject(Meteorite.class),
+//                new RunHitObject(SquareBullet.class)
         };
     }
 
-    public void run(Earth earth) {
+    public void run(Rocket rocket) {
         for (RunHitObject runHitObject : arrays) {
-            runHitObject.run(earth);
+            runHitObject.run(rocket);
         }
     }
 }

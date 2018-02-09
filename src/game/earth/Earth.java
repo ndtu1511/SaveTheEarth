@@ -1,34 +1,43 @@
 package game.earth;
 
+import Renderer.AnimationRenderer;
 import core.GameObject;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
 import constants.Constant;
+import hit.HitObject;
 
-public class Earth extends GameObject implements PhysicBody{
+public class Earth extends GameObject implements PhysicBody, HitObject{
     private BoxCollider boxCollider;
+    private EarthHP earthHP;
+    private ImageRenderer imageRenderer;
+    private AnimationRenderer animationRenderer;
+    private EarthHit earthHit = new EarthHit();
+
+
     public Earth() {
         this.renderer = new ImageRenderer(Constant.TheEarth.PATH);
+        this.boxCollider = new BoxCollider(100,100);
         this.position.set(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2);
-        this.boxCollider = new BoxCollider(60,60);
-    }
 
-    public void getHit() {
-//        this.isAlive = false;
-////        PlayerExplosion playerExplosion = GameObjectManager.instance.recycle(PlayerExplosion.class);
-//        playerExplosion.position.set(this.position);
-//        playerExplosion.configAction();
     }
 
     @Override
     public void run() {
         super.run();
         this.boxCollider.position.set(this.position);
+//        earthHP.showHealth();
+        this.earthHit.run(this);
     }
 
     @Override
     public BoxCollider getBoxCollider() {
         return boxCollider;
+    }
+
+    @Override
+    public void getHit(GameObject gameObject) {
+
     }
 }

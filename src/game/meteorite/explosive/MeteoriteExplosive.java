@@ -1,6 +1,7 @@
 package game.meteorite.explosive;
 
 import action.Action;
+import core.FrameCounter;
 import core.GameObject;
 import core.GameObjectManager;
 import core.Vector2D;
@@ -8,26 +9,17 @@ import core.Vector2D;
 import java.util.Random;
 
 public class MeteoriteExplosive extends GameObject {
-    public void configAction() {
-        Action action = new Action() {
-            @Override
-            public boolean run(GameObject owner) {
-                for (Double i = 0.0; i <= 360.0; i+= 5.0) {
-                    MeteoriteParticleExplosive meteoriteParticleExplosion = GameObjectManager.instance.recycle(MeteoriteParticleExplosive.class);
-                    meteoriteParticleExplosion.position.set(position);
-                    Random random = new Random();
-                    meteoriteParticleExplosion.velocity.set
-                            ((new Vector2D((float) 0.0, random.nextInt(3) + 1)).rotate(i));
-                    meteoriteParticleExplosion.configAction();
-                }
-                return true;
-            }
+    private Random random = new Random();
+    public MeteoriteExplosive() {
 
-            @Override
-            public void reset() {
+    }
 
-            }
-        };
-        this.add(action);
+    public void config() {
+        for (double i = 0; i <= 360 ; i += 360/30 ) {
+            MeteoriteParticleExplosive meteoriteParticleExplosive = GameObjectManager.instance.recycle(MeteoriteParticleExplosive.class);
+            meteoriteParticleExplosive.position.set(this.position);
+            meteoriteParticleExplosive.velocity.set((new Vector2D(0,1)).rotate(i).multiply(random.nextInt(3)+2));
+            meteoriteParticleExplosive.frameCounter = new FrameCounter(random.nextInt(1) + 100);
+        }
     }
 }
