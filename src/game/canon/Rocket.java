@@ -9,10 +9,14 @@ import Physic.PhysicBody;
 import Renderer.ImageRenderer;
 import game.meteorite.RocketHit;
 import hit.HitObject;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class Rocket extends GameObject implements PhysicBody, HitObject {
     public Vector2D velocity;
     private BoxCollider boxCollider;
+    private Clip clip;
 
     private RocketHit rocketHit = new RocketHit();
 //    private BulletHit hitSquareBullet = new BulletHit();
@@ -20,6 +24,8 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
     public Rocket() {
 //        this.isAlive = true;
         this.renderer = new ImageRenderer(Constant.Rocket.PATH);
+        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/fight.wav");
+        this.clip.start();
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(20,35);
         this.deactiveIfNeeded();
