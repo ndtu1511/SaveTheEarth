@@ -1,6 +1,7 @@
 package game.meteorite;
 
 import game.canon.Rocket;
+import game.meteorite_medium.MeteoriteMedium;
 import hit.RunHitObject;
 
 public class RocketHit {
@@ -9,7 +10,7 @@ public class RocketHit {
     public RocketHit() {
         this.arrays = new RunHitObject[]{
                 new RunHitObject(Meteorite.class),
-//                new RunHitObject(SquareBullet.class)
+                new RunHitObject(MeteoriteMedium.class)
         };
     }
 
