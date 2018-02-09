@@ -2,6 +2,7 @@ package game.canon;
 
 import constants.Constant;
 import core.GameObject;
+import core.GameObjectManager;
 import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
@@ -49,5 +50,9 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
             this.isAlive = false;
             this.position.set(0,0);
         }
+    }
+    public<O extends GameObject> void autoAim(O gameObject){
+        O object = GameObjectManager.instance.autoAim(this);
+
     }
 }

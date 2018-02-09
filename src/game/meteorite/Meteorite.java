@@ -7,12 +7,16 @@ import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
+import game.earth.Earth;
+import game.earth.EarthHP;
 import game.meteorite.explosive.MeteoriteExplosive;
 import hit.HitObject;
 
 public class Meteorite extends GameObject implements PhysicBody, HitObject {
     private BoxCollider boxCollider;
     public Vector2D velocity;
+
+    public Earth earth;
 
     public Meteorite(){
         this.renderer = new ImageRenderer("resources/meteorite/meteorite_small.png");
@@ -28,6 +32,10 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
         if (this.position.x<=0||this.position.y<=0||this.position.x>=800||this.position.y>=800){
             this.isAlive = false;
         }
+        if(this.position.khoangcach(this.position.x,this.position.y)<=70){
+            this.getHit(earth);
+//            earth.hit = 0;
+        }
     }
 
     @Override
@@ -42,6 +50,5 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
         MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
         meteoriteExplosive.position.set(this.position);
         meteoriteExplosive.config();
-
     }
 }

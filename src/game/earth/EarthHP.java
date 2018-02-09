@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class EarthHP {
     public int health;
-    private Vector<HP> vector = new Vector<>();
+    public Vector<HP> vector = new Vector<>();
 
     public EarthHP(int health) {
         this.health = health;

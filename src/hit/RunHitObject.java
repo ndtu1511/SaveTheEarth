@@ -1,8 +1,8 @@
 package hit;
 
+import Physic.PhysicBody;
 import core.GameObject;
 import core.GameObjectManager;
-import Physic.PhysicBody;
 
 public class RunHitObject<O extends GameObject & HitObject> {
 
