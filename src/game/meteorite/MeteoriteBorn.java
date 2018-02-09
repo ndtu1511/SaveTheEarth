@@ -24,7 +24,7 @@ public class MeteoriteBorn extends GameObject {
             int rd;
             rd = random.nextInt(3)+1;
             if (rd == 1) {
-                MeteoMedium meteorite = GameObjectManager.instance.recycle(MeteoMedium.class);
+                Meteorite meteorite = GameObjectManager.instance.recycle(Meteorite.class);
                 meteorite.position.set(new Vector2D(5,random.nextInt(790)+5));
                 meteorite.velocity.set(new Vector2D(random.nextInt(maxvelocity+1),
                         random.nextInt(2*maxvelocity+1) - maxvelocity));

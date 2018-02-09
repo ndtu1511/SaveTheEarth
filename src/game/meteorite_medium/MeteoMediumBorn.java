@@ -5,16 +5,17 @@ import core.GameObject;
 import core.GameObjectManager;
 import core.Vector2D;
 import game.meteorite.Meteorite;
+import game.meteorite_medium.MeteoriteMedium;
 
 import java.util.Random;
 
-public class MeteoriteMediumBorn extends GameObject {
+public class MeteoMediumBorn extends GameObject {
     private FrameCounter frameCounter;
     private Random random;
     private Integer count;
 
-    public MeteoriteMediumBorn() {
-        this.frameCounter = new FrameCounter(100);
+    public MeteoMediumBorn() {
+        this.frameCounter = new FrameCounter(200);
         this.random = new Random();
         this.count = 0;
     }
