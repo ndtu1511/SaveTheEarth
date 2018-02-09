@@ -14,6 +14,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     private ImageRenderer imageRenderer;
     private AnimationRenderer animationRenderer;
     private EarthHit earthHit = new EarthHit();
+    public int hit = 1;
 
 
     public Earth() {
@@ -30,6 +31,11 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
         this.boxCollider.position.set(this.position);
         earthHP.showHP();
         this.earthHit.run(this);
+
+        if(hit==0){
+            this.isAlive = this.earthHP.run();
+            hit = 1;
+        }
     }
 
     @Override

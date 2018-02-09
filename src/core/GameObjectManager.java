@@ -2,6 +2,10 @@ package core;
 
 import Physic.BoxCollider;
 import Physic.PhysicBody;
+import game.canon.Rocket;
+import game.earth.Earth;
+import game.earth.EarthHit;
+import game.meteorite.Meteorite;
 
 import java.awt.*;
 import java.util.Vector;
@@ -48,6 +52,21 @@ public class GameObjectManager {
         }
         return null;
     }
+    public <T extends GameObject> T autoAim(Rocket rocket){
+        for (GameObject gameObject: vector){
+            if (!gameObject.isAlive) continue;
+            if (!(gameObject instanceof Meteorite)) continue;
+            float x = gameObject.position.x - rocket.position.x;
+            float y = gameObject.position.y - rocket.position.y;
+
+            if ((int)Math.sqrt(x*x+y*y)<=50){
+                rocket.velocity.gravity2(gameObject.position.x,gameObject.position.y,rocket.velocity.x,rocket.velocity.y);
+            }
+
+        }
+
+        return null;
+    }
     public <T extends  GameObject> T recycle(Class<T> cls){
         for (GameObject gameObject : vector){
             if (gameObject.isAlive) continue;
@@ -69,5 +88,18 @@ public class GameObjectManager {
     public void clear(){
         this.vector.clear();
         this.newVector.clear();
+    }
+
+    public Earth hitEarth(){
+        for (GameObject gameObject : vector) {
+            if (!(gameObject.isAlive)) continue;
+            if (!(gameObject instanceof Meteorite)) continue;
+            if (gameObject.position.khoangcach(gameObject.position.x,gameObject.position.y)<= 100){
+                ((Meteorite) gameObject).getHit(gameObject);
+                hitEarth();
+            }
+
+        }
+        return null;
     }
 }

@@ -96,17 +96,24 @@ public class Vector2D {
         khoangcach = Math.sqrt( u * u + v * v );
         return khoangcach;
     }
-    public Vector2D vectorhuongtam (float positionX,float positionY){
-        return new Vector2D(positionX-earthX,positionY-earthY);
-    }
-//    public Vector2D congvectorhuongtam (Vector2D vector2D){
-//        return Vector2D(x,y);
+//    public Vector2D vectorhuongtam (float positionX,float positionY){
+//        return new Vector2D(positionX-earthX,positionY-earthY);
 //    }
+////    public Vector2D congvectorhuongtam (Vector2D vector2D){
+////        return Vector2D(x,y);
+////    }
 
     public Vector2D gravity (float positionX, float positionY, float x, float y){
-        this.x = (float) (x - (20*(positionX-earthX))/
+        this.x = (float) (x - (10*(positionX-earthX))/
                 ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
-        this.y = (float) (y - (20*(positionY-earthY))/
+        this.y = (float) (y - (10*(positionY-earthY))/
+                ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
+        return new Vector2D(this.x,this.y);
+    }
+    public Vector2D gravity2 (float positionX, float positionY, float x, float y){
+        this.x = (float) (x - (30*(positionX-earthX))/
+                ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
+        this.y = (float) (y - (30*(positionY-earthY))/
                 ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
         return new Vector2D(this.x,this.y);
     }
