@@ -26,7 +26,7 @@ public class EarthHP {
             return true;
         }
     }
-    public void showHealth(){
+    public void showHP(){
 
     }
 }
