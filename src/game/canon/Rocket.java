@@ -22,10 +22,12 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
 //    private BulletHit hitSquareBullet = new BulletHit();
 
     public Rocket() {
-//        this.isAlive = true;
+        this.isAlive = true;
         this.renderer = new ImageRenderer(Constant.Rocket.PATH);
-        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/shoot.wav");
-        this.clip.start();
+//        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/fight.wav");
+////        this.clip.start();
+//        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/shoot.wav");
+//        this.clip.start();
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(20,35);
         this.deactiveIfNeeded();

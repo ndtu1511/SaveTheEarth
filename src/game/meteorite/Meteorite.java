@@ -1,29 +1,31 @@
 
 package game.meteorite;
 
+import Renderer.AnimationRenderer;
+import constants.Constant;
 import core.GameObject;
 import core.GameObjectManager;
 import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
-import game.earth.Earth;
-import game.earth.EarthHP;
-import game.meteorite.explosive.MeteoriteExplosive;
 import hit.HitObject;
 import utils.AudioUtils;
 
 import javax.sound.sampled.Clip;
 
 public class Meteorite extends GameObject implements PhysicBody, HitObject {
-    private BoxCollider boxCollider;
+    protected BoxCollider boxCollider;
+    private ImageRenderer imageRenderer;
+    private MeteoriteHit meteoriteHit;
     public Vector2D velocity;
-    private Clip clip;
-
+//    private Clip clip;
     public Meteorite(){
-        this.renderer = new ImageRenderer("resources/meteorite/meteorite_small.png");
+        this.imageRenderer = new ImageRenderer(Constant.Meteorite.PATH);
+        this.renderer = this.imageRenderer;
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(20,20);
+        meteoriteHit = new MeteoriteHit();
     }
     @Override
     public void run(){
@@ -34,14 +36,7 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
         if (this.position.x<=0||this.position.y<=0||this.position.x>=800||this.position.y>=800){
             this.isAlive = false;
         }
-        if(this.position.khoangcach(this.position.x,this.position.y)<=70){
-            this.isAlive = false;
-            this.velocity = new Vector2D();
-            MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
-            meteoriteExplosive.position.set(this.position);
-            meteoriteExplosive.config();
-
-        }
+        this.meteoriteHit.run(this);
     }
 
     @Override
@@ -51,13 +46,10 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
 
     @Override
     public void getHit(GameObject gameObject) {
-        this.isAlive = false;
-        this.velocity = new Vector2D();
-        MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
-        meteoriteExplosive.position.set(this.position);
-        meteoriteExplosive.config();
-
-        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
-        this.clip.start();
+        MeteoDeadAni meteoDeadAni = GameObjectManager.instance.recycle(MeteoDeadAni.class);
+        meteoDeadAni.position.set(this.position);
+        meteoDeadAni.run();
+//        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
+//        this.clip.start();
     }
 }
