@@ -9,18 +9,23 @@ import game.meteorite_medium.MeteoriteMedium;
 
 import java.util.Random;
 
-public class MeteoMediumBorn extends GameObject {
+public class MeteoriteMediumBorn extends GameObject {
     private FrameCounter frameCounter;
+    private FrameCounter countGame;
     private Random random;
     private Integer count;
 
-    public MeteoMediumBorn() {
+    public MeteoriteMediumBorn() {
+        this.countGame = new FrameCounter(2000);
         this.frameCounter = new FrameCounter(200);
         this.random = new Random();
         this.count = 0;
     }
     public void run(){
-        int maxvelocity = 1;
+        int maxvelocity = 2;
+        if (!this.countGame.run()){
+            this.frameCounter.count = 0;
+        }
         if(this.frameCounter.run()) {
             MeteoriteMedium meteoriteMedium = new MeteoriteMedium();
             int rd;
@@ -44,6 +49,11 @@ public class MeteoMediumBorn extends GameObject {
             }
             GameObjectManager.instance.add(meteoriteMedium);
             this.frameCounter.reset();
+            if(this.frameCounter.max>=100){
+                this.frameCounter.max -= 5;
+            }else {
+                this.frameCounter.max=100;
+            }
         }
     }
 }
