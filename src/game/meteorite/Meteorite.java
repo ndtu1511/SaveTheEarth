@@ -11,10 +11,14 @@ import game.earth.Earth;
 import game.earth.EarthHP;
 import game.meteorite.explosive.MeteoriteExplosive;
 import hit.HitObject;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class Meteorite extends GameObject implements PhysicBody, HitObject {
     private BoxCollider boxCollider;
     public Vector2D velocity;
+    private Clip clip;
 
     public Meteorite(){
         this.renderer = new ImageRenderer("resources/meteorite/meteorite_small.png");
@@ -52,5 +56,8 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
         MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
         meteoriteExplosive.position.set(this.position);
         meteoriteExplosive.config();
+
+        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
+        this.clip.start();
     }
 }
