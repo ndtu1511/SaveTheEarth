@@ -27,11 +27,13 @@ public class ImageRenderer implements Renderer {
                 this.angle=360-Cannon.angle;
                 g2d.rotate(Math.toRadians(this.angle),position.x,position.y);
             }
-//            if (this.url.equalsIgnoreCase(Constant.Rocket.PATH) && !this.rotatedImage) {
-//                g2d.rotate(Math.toRadians(360-Cannon.angle),position.x,position.y);
-//                this.rotatedImage=true;
-//            }
-            g2d.drawImage(this.image,(int)position.x-this.image.getWidth()/2,(int)position.y-this.image.getHeight()/2,null);
+            if (this.url.equalsIgnoreCase(Constant.BackGround.PATH)){
+                g2d.drawImage(this.image,(int)position.x-this.image.getWidth()/2,(int)position.y-this.image.getHeight()/2,null);
+                graphics.setColor(Color.gray);
+                g2d.fillRect(Constant.Windows.WIDTH,Constant.Windows.HEIGHT,70,70);
+                graphics.fillRect(Constant.Windows.WIDTH,Constant.Windows.HEIGHT,70,70);
+            }
+            else g2d.drawImage(this.image,(int)position.x-this.image.getWidth()/2,(int)position.y-this.image.getHeight()/2,null);
         }
     }
 }
