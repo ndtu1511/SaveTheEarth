@@ -1,12 +1,16 @@
 package game.earth;
 
 import Renderer.AnimationRenderer;
+import com.sun.deploy.util.SessionState;
 import core.GameObject;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
 import constants.Constant;
 import hit.HitObject;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class Earth extends GameObject implements PhysicBody, HitObject{
     private BoxCollider boxCollider;
@@ -15,6 +19,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     private AnimationRenderer animationRenderer;
     private EarthHit earthHit = new EarthHit();
     public int hit = 1;
+    private Clip clip;
 
 
     public Earth() {
@@ -47,5 +52,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     public void getHit(GameObject gameObject) {
         this.isAlive = this.earthHP.run();
 
+//        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEarth.wav");
+//        this.clip.start();
     }
 }
