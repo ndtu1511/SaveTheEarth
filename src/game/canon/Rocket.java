@@ -51,8 +51,10 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
             this.position.set(0,0);
         }
     }
-    public<O extends GameObject> void autoAim(O gameObject){
+    public<O extends GameObject> void autoAim(){
         O object = GameObjectManager.instance.autoAim(this);
-
+        if (object != null) {
+            this.velocity.gravity2(object.position.x,object.position.y,this.velocity.x,this.velocity.y);
+        }
     }
 }

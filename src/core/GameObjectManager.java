@@ -60,7 +60,7 @@ public class GameObjectManager {
             float y = gameObject.position.y - rocket.position.y;
 
             if ((int)Math.sqrt(x*x+y*y)<=50){
-                rocket.velocity.gravity2(gameObject.position.x,gameObject.position.y,rocket.velocity.x,rocket.velocity.y);
+                return (T) gameObject;
             }
 
         }
