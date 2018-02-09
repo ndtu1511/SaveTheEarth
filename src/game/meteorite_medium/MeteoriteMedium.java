@@ -31,7 +31,11 @@ public class MeteoriteMedium extends GameObject implements PhysicBody, HitObject
             this.isAlive = false;
         }
         if(this.position.khoangcach(this.position.x,this.position.y)<=70){
-            this.getHit(earth);
+            this.isAlive = false;
+            this.velocity = new Vector2D();
+            MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
+            meteoriteExplosive.position.set(this.position);
+            meteoriteExplosive.config();
 //            earth.hit = 0;
         }
     }
@@ -43,10 +47,6 @@ public class MeteoriteMedium extends GameObject implements PhysicBody, HitObject
 
     @Override
     public void getHit(GameObject gameObject) {
-        this.isAlive = false;
-        this.velocity = new Vector2D();
-        MeteoriteExplosive meteoriteExplosive = GameObjectManager.instance.recycle(MeteoriteExplosive.class);
-        meteoriteExplosive.position.set(this.position);
-        meteoriteExplosive.config();
+
     }
 }
