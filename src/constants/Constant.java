@@ -24,6 +24,21 @@ public class Constant {
     public static class Rocket{
         public static final String PATH = "resources/rocket/bullet.png";
     }
+    public static class Meteorite{
+        public static final String PATH = "resources/meteorite/meteorite_small.png";
+        public static final String PATH_METEO_MEDIUM = "resources/meteorite/meteorite_medium.png";
+        public static final String[] PATH_METEO_DEAD = {
+                "resources/get_hit_animation/hitAni01.png",
+                "resources/get_hit_animation/hitAni02.png",
+                "resources/get_hit_animation/hitAni03.png",
+                "resources/get_hit_animation/hitAni04.png",
+                "resources/get_hit_animation/hitAni05.png",
+                "resources/get_hit_animation/hitAni06.png",
+                "resources/get_hit_animation/hitAni07.png",
+                "resources/get_hit_animation/hitAni08.png",
+                "resources/get_hit_animation/hitAni09.png"
+        };
+    }
 //    public static class Enemy{
 //        public static final int WAIT_Frame_COUNTER;
 //        public static final constants.Enemy RESOURCES;

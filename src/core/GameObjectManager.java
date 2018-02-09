@@ -4,7 +4,6 @@ import Physic.BoxCollider;
 import Physic.PhysicBody;
 import game.canon.Rocket;
 import game.earth.Earth;
-import game.earth.EarthHit;
 import game.meteorite.Meteorite;
 
 import java.awt.*;

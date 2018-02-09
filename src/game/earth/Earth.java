@@ -12,17 +12,12 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     private BoxCollider boxCollider;
     private EarthHP earthHP;
     private ImageRenderer imageRenderer;
-    private AnimationRenderer animationRenderer;
-    private EarthHit earthHit = new EarthHit();
-    public int hit = 1;
-
-
     public Earth() {
         this.position.set(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2);
-        this.renderer = new ImageRenderer(Constant.TheEarth.PATH);
+        this.imageRenderer = new ImageRenderer(Constant.TheEarth.PATH);
         this.earthHP = new EarthHP(5);
-
         this.boxCollider = new BoxCollider(50,50);
+        this.renderer = this.imageRenderer;
     }
 
     @Override
@@ -30,12 +25,6 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
         super.run();
         this.boxCollider.position.set(this.position);
         earthHP.showHP();
-        this.earthHit.run(this);
-
-        if(hit==0){
-            this.isAlive = this.earthHP.run();
-            hit = 1;
-        }
     }
 
     @Override
@@ -45,7 +34,6 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
 
     @Override
     public void getHit(GameObject gameObject) {
-        this.isAlive = this.earthHP.run();
-
+//        this.isAlive = this.earthHP.run();
     }
 }
