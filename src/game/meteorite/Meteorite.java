@@ -49,6 +49,7 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
         MeteoDeadAni meteoDeadAni = GameObjectManager.instance.recycle(MeteoDeadAni.class);
         meteoDeadAni.position.set(this.position);
         meteoDeadAni.run();
+        this.isAlive = false;
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
 //        this.clip.start();
     }

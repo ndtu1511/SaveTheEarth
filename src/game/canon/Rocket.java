@@ -29,7 +29,7 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/shoot.wav");
 //        this.clip.start();
         this.velocity = new Vector2D();
-        this.boxCollider = new BoxCollider(20,35);
+        this.boxCollider = new BoxCollider(20,20);
         this.deactiveIfNeeded();
     }
 

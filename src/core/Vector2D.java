@@ -108,6 +108,10 @@ public class Vector2D {
                 ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
         this.y = (float) (y - (5*(positionY-earthY))/
                 ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
+        if(this.x >=2){this.x = 2;}
+        if(this.y >=2){this.y = 2;}
+        if(this.x <=-2){this.x = -2;}
+        if(this.x <=-2){this.x = -2;}
         return new Vector2D(this.x,this.y);
     }
     public Vector2D gravity2 (float positionX, float positionY, float x, float y){
