@@ -7,7 +7,9 @@ import game.background.Suction;
 import game.canon.Cannon;
 import game.earth.Earth;
 import game.meteorite.MeteoriteBorn;
+import utils.AudioUtils;
 
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,6 +21,7 @@ public class GameCanvas extends JPanel{
     BufferedImage meteorite;
     Graphics graphics;
     Random random;
+    Clip clip;
     public GameCanvas(){
         this.setSize(Constant.Windows.WIDTH,Constant.Windows.HEIGHT);
         this.setVisible(true);
@@ -29,6 +32,7 @@ public class GameCanvas extends JPanel{
         this.setupCannon();
         this.setupEarth();
         this.setupCrossHair();
+        this.setupsoundBackGround();
     }
     private void setupBackBuffer(){
         this.backBuffered = new BufferedImage(Constant.Windows.WIDTH,Constant.Windows.HEIGHT,BufferedImage.TYPE_4BYTE_ABGR);
@@ -50,6 +54,11 @@ public class GameCanvas extends JPanel{
     }
     private void setupCrossHair(){
         GameObjectManager.instance.recycle(CrossHair.class);
+    }
+    private void setupsoundBackGround() {
+        this.clip = AudioUtils.instance.loadSound("resources/sound/bgm/nhacnenn.wav");
+        this.clip.loop(-1);
+        this.clip.start();
     }
     @Override
     protected void paintComponent(Graphics g) {
