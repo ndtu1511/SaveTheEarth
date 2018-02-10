@@ -8,6 +8,8 @@ import game.earth.Earth;
 import game.earth.EarthHP;
 import game.earth.Score;
 import game.meteorite.MeteoriteBorn;
+import scene.GameOverviewScene;
+import scene.SceneManager;
 //import game.meteorite_medium.MeteoriteMediumBorn;
 
 import javax.sound.sampled.Clip;
@@ -30,38 +32,17 @@ public class GameCanvas extends JPanel{
         this.setVisible(true);
         random = new Random();
         this.setupBackBuffer();
-        this.setupBackGround();
-        this.setupMeteoriteBorn();
-        this.setupCannon();
-        this.setupEarth();
-        this.setupCrossHair();
+
         this.earthHP = new EarthHP();
         score = new Score();
+        SceneManager.instance.changeScene(new GameOverviewScene());
 //        this.setupsoundBackGround();
     }
     private void setupBackBuffer(){
         this.backBuffered = new BufferedImage(Constant.Windows.WIDTH,Constant.Windows.HEIGHT,BufferedImage.TYPE_4BYTE_ABGR);
         this.graphics = this.backBuffered.getGraphics();
     }
-    private void setupBackGround(){
-        GameObjectManager.instance.recycle(BackGround.class);
-        GameObjectManager.instance.recycle(Suction.class);
-//        GameObjectManager.instance.recycle(Score.class);
-    }
-    private void setupEarth(){
-        GameObjectManager.instance.recycle(Earth.class);
-    }
-    private void setupMeteoriteBorn(){
-        GameObjectManager.instance.recycle(MeteoriteBorn.class);
-//        GameObjectManager.instance.recycle(MeteoriteMediumBorn.class);
 
-    }
-    private void setupCannon(){
-        GameObjectManager.instance.recycle(Cannon.class);
-    }
-    private void setupCrossHair(){
-        GameObjectManager.instance.recycle(CrossHair.class);
-    }
 //    private void setupsoundBackGround() {
 //        this.clip = AudioUtils.instance.loadSound("resources/sound/bgm/nhacnenn.wav");
 //        this.clip.loop(-1);
@@ -80,6 +61,6 @@ public class GameCanvas extends JPanel{
     }
     public void runAll(){
         GameObjectManager.instance.runAll();
-//        ScenceManager.instance.performChangeSceneIfNeeded();
+        SceneManager.instance.performChangeSceneIfNeeded();
     }
 }
