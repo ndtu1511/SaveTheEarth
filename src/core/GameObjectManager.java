@@ -2,7 +2,7 @@ package core;
 
 import Physic.BoxCollider;
 import Physic.PhysicBody;
-import game.canon.Rocket;
+import game.canon.bullet.Bullet;
 import game.earth.Earth;
 import game.meteorite.Meteorite;
 
@@ -51,15 +51,15 @@ public class GameObjectManager {
         }
         return null;
     }
-    public <T extends GameObject> T autoAim(Rocket rocket){
+    public <T extends GameObject> T autoAim(Bullet bullet){
         for (GameObject gameObject: vector){
             if (!gameObject.isAlive) continue;
             if (!(gameObject instanceof Meteorite)) continue;
-            float x = gameObject.position.x - rocket.position.x;
-            float y = gameObject.position.y - rocket.position.y;
+            float x = gameObject.position.x - bullet.position.x;
+            float y = gameObject.position.y - bullet.position.y;
 
             if ((int)Math.sqrt(x*x+y*y)<=50){
-                return (T) gameObject;
+                bullet.velocity.gravity2(gameObject.position.x,gameObject.position.y, bullet.velocity.x, bullet.velocity.y);
             }
 
         }

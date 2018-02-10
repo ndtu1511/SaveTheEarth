@@ -8,7 +8,7 @@ import java.util.Vector;
 
 public class GameObject {
     public Vector2D position;
-    protected Renderer renderer;
+    public Renderer renderer;
     public boolean isAlive;
     public Graphics graphics;
     private Vector<Action> actions;

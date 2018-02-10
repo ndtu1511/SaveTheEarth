@@ -1,23 +1,21 @@
-package game.meteorite;
+package game.ufo;
 
-import game.canon.Rocket;
-import game.meteorite_medium.MeteoriteMedium;
+import game.canon.bullet.Bullet;
+import game.earth.Earth;
+import game.meteorite.Meteorite;
 import hit.RunHitObject;
-import utils.AudioUtils;
-
-import javax.sound.sampled.Clip;
 
 public class RocketHit {
     private RunHitObject[] arrays;
 
     public RocketHit() {
         this.arrays = new RunHitObject[]{
+                new RunHitObject(Earth.class),
+                new RunHitObject(Bullet.class),
                 new RunHitObject(Meteorite.class),
-                new RunHitObject(MeteoriteMedium.class)
         };
     }
-
-    public void run(Rocket rocket) {
+    public void run(Rocket rocket){
         for (RunHitObject runHitObject : arrays) {
             runHitObject.run(rocket);
         }

@@ -28,7 +28,7 @@ public class Cannon extends GameObject {
         super.run();
         this.position.set(MouseMotionInput.instance.position.subtract(positionEarth).normalize().multiply(30).add(positionEarth));
         this.angle=this.axis.angleWithAVector(MouseMotionInput.instance.position);
-        canonShoot.run(this,this.graphics);
+        canonShoot.run(this);
         if (frameCounter.run()) {
 //            canonShoot.run(this);
             frameCounter.reset();
