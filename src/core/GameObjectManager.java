@@ -84,6 +84,14 @@ public class GameObjectManager {
         }
 
     }
+    public Earth isEarth(){
+        for (GameObject gameObject:vector){
+            if (gameObject instanceof Earth){
+                return (Earth) gameObject;
+            }
+        }
+        return null;
+    }
     public void clear(){
         this.vector.clear();
         this.newVector.clear();
