@@ -11,6 +11,7 @@ import core.GameObjectManager;
 import game.meteorite.DeadAni;
 import game.ufo.Rocket;
 import hit.HitObject;
+import scene.GameOverviewScene;
 import scene.ReplayScreen;
 import scene.SceneManager;
 import utils.AudioUtils;
@@ -27,7 +28,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     public Earth() {
         this.position.set(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2);
         this.imageRenderer = new ImageRenderer(Constant.TheEarth.PATH);
-        this.earthHP = new EarthHP(5);
+        this.earthHP = new EarthHP(1);
         this.boxCollider = new BoxCollider(30,30);
         this.renderer = this.imageRenderer;
     }
@@ -49,11 +50,14 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
         Score.highScore -= 10;
         this.isAlive = this.earthHP.run();
         if (!this.isAlive) {
+//            SceneManager.instance.changeScene(new ReplayScreen());
             DeadAni deadAni = GameObjectManager.instance.recycle(DeadAni.class);
             deadAni.renderer = new AnimationRenderer(false, 5, Constant.TheEarth.PATH_DEAD);
             deadAni.position.set(this.position);
             deadAni.run();
+
             SceneManager.instance.changeScene(new ReplayScreen());
+
         }
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEarth.wav");
 //        this.clip.start();

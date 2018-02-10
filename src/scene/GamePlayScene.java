@@ -24,11 +24,7 @@ public class GamePlayScene implements Scene {
 
     }
 
-    @Override
-    public void deinit() {
-        GameObjectManager.instance.clear();
-        this.clip.stop();
-    }
+
 
     private void setupBackGround(){
         GameObjectManager.instance.recycle(BackGround.class);
@@ -48,5 +44,10 @@ public class GamePlayScene implements Scene {
     }
     private void setupCrossHair(){
         GameObjectManager.instance.recycle(CrossHair.class);
+    }
+    @Override
+    public void deinit() {
+        GameObjectManager.instance.clear();
+//        this.clip.stop();
     }
 }

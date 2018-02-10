@@ -104,9 +104,9 @@ public class Vector2D {
 ////    }
 
     public Vector2D gravity (float positionX, float positionY, float x, float y){
-        this.x = (float) (x - (5*(positionX-earthX))/
+        this.x = (float) (x - (10*(positionX-earthX))/
                 ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
-        this.y = (float) (y - (5*(positionY-earthY))/
+        this.y = (float) (y - (10*(positionY-earthY))/
                 ((positionX-earthX)*(positionX-earthX)+(positionY-earthY)*(positionY-earthY)));
         if(this.x >=2){this.x = 2;}
         if(this.y >=2){this.y = 2;}
