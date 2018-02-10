@@ -27,7 +27,7 @@ public class Bullet extends GameObject implements PhysicBody, HitObject {
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/shoot.wav");
 //        this.clip.start();
         this.velocity = new Vector2D();
-        this.boxCollider = new BoxCollider(20,35);
+        this.boxCollider = new BoxCollider(20,20);
         this.deactiveIfNeeded();
     }
 
@@ -57,8 +57,10 @@ public class Bullet extends GameObject implements PhysicBody, HitObject {
             this.position.set(0,0);
         }
     }
-    public<O extends GameObject> void autoAim(O gameObject){
+    public<O extends GameObject> void autoAim(){
         O object = GameObjectManager.instance.autoAim(this);
-
+        if (object != null) {
+            this.velocity.gravity2(object.position.x,object.position.y,this.velocity.x,this.velocity.y);
+        }
     }
 }
