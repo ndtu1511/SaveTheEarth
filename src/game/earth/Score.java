@@ -23,8 +23,9 @@ public class Score extends JPanel {
 
         g2d.setFont(new Font("NewellsHand", Font.ITALIC, 30));
         g2d.setColor(Color.white);
+        highScore++;
 
-        g2d.drawString(String.valueOf(highScore), 640, 60);
+        g2d.drawString(String.valueOf(highScore), 660, 30);
     }
 
     @Override
