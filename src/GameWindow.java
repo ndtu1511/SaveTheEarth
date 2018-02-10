@@ -1,6 +1,7 @@
 import Input.MouseInput;
 import Input.MouseMotionInput;
 import constants.Constant;
+import game.earth.Score;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +12,8 @@ import java.awt.image.BufferedImage;
 public class GameWindow extends JFrame {
     private GameCanvas gameCanvas;
     private long lasttime=0;
+    private long lasttime2=0;
+    private Score score;
     public GameWindow(){
         this.setSize(Constant.Windows.WIDTH,Constant.Windows.HEIGHT);
         this.setupGameCanvas();
@@ -21,6 +24,7 @@ public class GameWindow extends JFrame {
     private void setupGameCanvas(){
         this.gameCanvas = new GameCanvas();
         this.add(this.gameCanvas);
+        this.score = new Score();
     }
     private void hideCursor() {
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);

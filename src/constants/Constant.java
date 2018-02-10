@@ -14,6 +14,23 @@ public class Constant {
         public static final String PATH ="resources/earth/earth.png";
         public static final int POSITION_X = Windows.WIDTH/2;
         public static final int POSITION_Y = Windows.HEIGHT/2;
+        public static final String[] PATH_DEAD = {
+                "resources/end_game_animation/ani01.png",
+                "resources/end_game_animation/ani02.png",
+                "resources/end_game_animation/ani03.png",
+                "resources/end_game_animation/ani04.png",
+                "resources/end_game_animation/ani05.png",
+                "resources/end_game_animation/ani06.png",
+                "resources/end_game_animation/ani07.png",
+                "resources/end_game_animation/ani08.png",
+                "resources/end_game_animation/ani09.png",
+                "resources/end_game_animation/ani10.png",
+                "resources/end_game_animation/ani11.png",
+                "resources/end_game_animation/ani12.png",
+                "resources/end_game_animation/ani13.png",
+                "resources/end_game_animation/ani14.png",
+                "resources/end_game_animation/ani15.png"
+        };
     }
     public static class Cannon{
         public static final String PATH = "resources/cannon/cannon.png";

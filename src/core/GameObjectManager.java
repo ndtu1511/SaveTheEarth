@@ -4,6 +4,7 @@ import Physic.BoxCollider;
 import Physic.PhysicBody;
 import game.canon.bullet.Bullet;
 import game.earth.Earth;
+import game.earth.Score;
 import game.meteorite.Meteorite;
 
 import java.awt.*;
@@ -13,9 +14,11 @@ public class GameObjectManager {
     public static GameObjectManager instance = new GameObjectManager();
     private Vector<GameObject> vector;
     private Vector<GameObject> newVector;
+    public Vector plus;
     private GameObjectManager() {
         this.vector = new Vector<>();
         this.newVector = new Vector<>();
+        this.plus = new Vector();
     }
 
     public void add(GameObject gameObject){
@@ -46,6 +49,8 @@ public class GameObjectManager {
             if (!(gameObject instanceof PhysicBody)) continue;
             BoxCollider other = ((PhysicBody) gameObject).getBoxCollider();
             if (boxCollider.checkCollider(other)){
+                int i = 1;
+                plus.add(i);
                 return (T) gameObject;
             }
         }
@@ -83,6 +88,14 @@ public class GameObjectManager {
             return null;
         }
 
+    }
+    public Earth isEarth(){
+        for (GameObject gameObject:vector){
+            if (gameObject instanceof Earth){
+                return (Earth) gameObject;
+            }
+        }
+        return null;
     }
     public void clear(){
         this.vector.clear();

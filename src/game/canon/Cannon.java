@@ -2,14 +2,17 @@ package game.canon;
 
 import core.FrameCounter;
 import core.GameObject;
+import core.GameObjectManager;
 import core.Vector2D;
 import Input.MouseMotionInput;
 import Renderer.ImageRenderer;
 import constants.Constant;
+import game.earth.Earth;
 
 public class Cannon extends GameObject {
     Vector2D positionEarth;
     Vector2D axis;
+
     public static double angle;
     CanonShoot canonShoot;
     FrameCounter frameCounter;
@@ -29,10 +32,8 @@ public class Cannon extends GameObject {
         this.position.set(MouseMotionInput.instance.position.subtract(positionEarth).normalize().multiply(30).add(positionEarth));
         this.angle=this.axis.angleWithAVector(MouseMotionInput.instance.position);
         canonShoot.run(this);
-        if (frameCounter.run()) {
-//            canonShoot.run(this);
-            frameCounter.reset();
+        if ( !GameObjectManager.instance.isEarth().isAlive){
+            this.isAlive=false;
         }
-//        System.out.println(angle);
     }
 }
