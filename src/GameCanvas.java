@@ -36,7 +36,7 @@ public class GameCanvas extends JPanel{
         this.setupEarth();
         this.setupCrossHair();
         this.earthHP = new EarthHP();
-
+        score = new Score();
 //        this.setupsoundBackGround();
     }
     private void setupBackBuffer(){
@@ -74,8 +74,8 @@ public class GameCanvas extends JPanel{
     public void renderAll(){
         this.graphics.drawImage(this.backGround,0,0,null);
         GameObjectManager.instance.renderAll(graphics);
-//        score.doDrawing(graphics);
-        earthHP.doDrawing(graphics);
+        score.doDrawing(graphics);
+        score.repaint();
         this.repaint();
     }
     public void runAll(){

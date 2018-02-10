@@ -1,5 +1,6 @@
 package game.earth;
 
+import core.GameObject;
 import core.GameObjectManager;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import javax.swing.JPanel;
 
 
 public class Score extends JPanel {
-    public int highScore = 0;
+    public static int highScore = 0;
     public Vector plus1;
 
     public void doDrawing(Graphics g) {
@@ -31,14 +32,7 @@ public class Score extends JPanel {
 //        }
 
 
-        g2d.drawString(String.valueOf(highScore), 660, 30);
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-
-        super.paintComponent(g);
-        doDrawing(g);
+        g2d.drawString(String.valueOf(highScore), 720, 30);
     }
 }
 
