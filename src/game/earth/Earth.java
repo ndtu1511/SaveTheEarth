@@ -11,6 +11,7 @@ import hit.HitObject;
 import utils.AudioUtils;
 
 import javax.sound.sampled.Clip;
+import javax.swing.*;
 
 public class Earth extends GameObject implements PhysicBody, HitObject{
     private BoxCollider boxCollider;
@@ -40,7 +41,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
 
     @Override
     public void getHit(GameObject gameObject) {
-//        this.isAlive = this.earthHP.run();
+        this.isAlive = this.earthHP.run();
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEarth.wav");
 //        this.clip.start();
     }
