@@ -34,6 +34,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     public void run() {
         super.run();
         this.boxCollider.position.set(this.position.x,this.position.y-15);
+//        this.earthHP.doDrawing(graphics);
     }
 
     @Override

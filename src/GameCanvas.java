@@ -5,6 +5,7 @@ import game.background.BackGround;
 import game.background.Suction;
 import game.canon.Cannon;
 import game.earth.Earth;
+import game.earth.EarthHP;
 import game.earth.Score;
 import game.meteorite.MeteoriteBorn;
 //import game.meteorite_medium.MeteoriteMediumBorn;
@@ -22,6 +23,7 @@ public class GameCanvas extends JPanel{
     Graphics graphics;
     Random random;
     Clip clip;
+    EarthHP earthHP;
     Score score;
     public GameCanvas(){
         this.setSize(Constant.Windows.WIDTH,Constant.Windows.HEIGHT);
@@ -33,8 +35,8 @@ public class GameCanvas extends JPanel{
         this.setupCannon();
         this.setupEarth();
         this.setupCrossHair();
+        this.earthHP = new EarthHP();
 
-        this.score = new Score();
 //        this.setupsoundBackGround();
     }
     private void setupBackBuffer(){
@@ -72,7 +74,8 @@ public class GameCanvas extends JPanel{
     public void renderAll(){
         this.graphics.drawImage(this.backGround,0,0,null);
         GameObjectManager.instance.renderAll(graphics);
-        score.doDrawing(graphics);
+//        score.doDrawing(graphics);
+        earthHP.doDrawing(graphics);
         this.repaint();
     }
     public void runAll(){

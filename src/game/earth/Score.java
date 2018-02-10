@@ -1,15 +1,18 @@
 package game.earth;
 
+import core.GameObjectManager;
+
 import java.awt.*;
+import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
 public class Score extends JPanel {
     public int highScore = 0;
+    public Vector plus1;
 
     public void doDrawing(Graphics g) {
-
         Graphics2D g2d = (Graphics2D) g;
 
         RenderingHints rh =
@@ -23,7 +26,10 @@ public class Score extends JPanel {
 
         g2d.setFont(new Font("NewellsHand", Font.ITALIC, 30));
         g2d.setColor(Color.white);
-        highScore++;
+//        for (int i = 0, i <= ) {
+//
+//        }
+
 
         g2d.drawString(String.valueOf(highScore), 660, 30);
     }
