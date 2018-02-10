@@ -4,9 +4,9 @@ import Renderer.AnimationRenderer;
 import constants.Constant;
 import core.GameObject;
 
-public class MeteoDeadAni extends GameObject {
+public class DeadAni extends GameObject {
     private AnimationRenderer animationRenderer;
-    public MeteoDeadAni() {
+    public DeadAni() {
         this.animationRenderer = new AnimationRenderer(false,4,
                 Constant.Meteorite.PATH_METEO_DEAD);
         this.renderer = this.animationRenderer;

@@ -1,7 +1,6 @@
 
 package game.meteorite;
 
-import Renderer.AnimationRenderer;
 import constants.Constant;
 import core.GameObject;
 import core.GameObjectManager;
@@ -10,9 +9,6 @@ import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
 import hit.HitObject;
-import utils.AudioUtils;
-
-import javax.sound.sampled.Clip;
 
 public class Meteorite extends GameObject implements PhysicBody, HitObject {
     protected BoxCollider boxCollider;
@@ -46,9 +42,10 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject {
 
     @Override
     public void getHit(GameObject gameObject) {
-        MeteoDeadAni meteoDeadAni = GameObjectManager.instance.recycle(MeteoDeadAni.class);
-        meteoDeadAni.position.set(this.position);
-        meteoDeadAni.run();
+        this.isAlive=false;
+        DeadAni deadAni = GameObjectManager.instance.recycle(DeadAni.class);
+        deadAni.position.set(this.position);
+        deadAni.run();
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
 //        this.clip.start();
     }

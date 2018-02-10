@@ -1,19 +1,25 @@
 package game.canon;
 
 import Input.MouseInput;
+import core.FrameCounter;
 import core.GameObjectManager;
-import core.Vector2D;
-import Input.MouseMotionInput;
+import game.canon.bullet.Bullet;
 
 import java.awt.*;
 
 public class CanonShoot {
-    public void run(Cannon cannon,Graphics graphics){
-        if(MouseInput.instance.isPressed){
-            Rocket rocket = GameObjectManager.instance.recycle(Rocket.class);
-            rocket.position.set(cannon.position);
-            rocket.velocity.set(cannon.position.subtract(400,400).normalize().multiply(8));
+    private FrameCounter frameCounter;
+    public CanonShoot() {
+        frameCounter = new FrameCounter(20);
+    }
+
+    public void run(Cannon cannon){
+        if(this.frameCounter.run()){
+            Bullet bullet = GameObjectManager.instance.recycle(Bullet.class);
+            bullet.position.set(cannon.position);
+            bullet.velocity.set(cannon.position.subtract(400,400).normalize().multiply(8));
             MouseInput.instance.isPressed=false;
+            this.frameCounter.reset();
         }
 
     }

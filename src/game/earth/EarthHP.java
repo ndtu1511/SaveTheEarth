@@ -18,16 +18,18 @@ public class EarthHP {
     }
 
     public boolean run(){
-        if(this.health == 0) {
-            return  false;
-        } else {
-            this.health -= 1;
-            vector.elementAt(health).isAlive = false;
-            return true;
+//        if(this.health == 0) {
+//            return  false;
+//        } else {
+//            this.health -= 1;
+//            vector.elementAt(health).isAlive = false;
+//            return true;
+//        }
+        this.health--;
+        vector.elementAt(health).isAlive=false;
+        if (this.health==0){
+            return false;
         }
-    }
-
-    public void showHP(){
-
+        return true;
     }
 }

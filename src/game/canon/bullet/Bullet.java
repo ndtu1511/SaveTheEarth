@@ -1,4 +1,4 @@
-package game.canon;
+package game.canon.bullet;
 
 import constants.Constant;
 import core.GameObject;
@@ -7,21 +7,19 @@ import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
-import game.meteorite.RocketHit;
 import hit.HitObject;
-import utils.AudioUtils;
 
 import javax.sound.sampled.Clip;
 
-public class Rocket extends GameObject implements PhysicBody, HitObject {
+public class Bullet extends GameObject implements PhysicBody, HitObject {
     public Vector2D velocity;
     private BoxCollider boxCollider;
     private Clip clip;
 
-    private RocketHit rocketHit = new RocketHit();
+    private BulletHit bulletHit = new BulletHit();
 //    private BulletHit hitSquareBullet = new BulletHit();
 
-    public Rocket() {
+    public Bullet() {
         this.isAlive = true;
         this.renderer = new ImageRenderer(Constant.Rocket.PATH);
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/fight.wav");
@@ -38,7 +36,7 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
         super.run();
         this.position.addUp(this.velocity);
         this.boxCollider.position.set(this.position);
-        rocketHit.run(this);
+        bulletHit.run(this);
     }
 
     private void deactiveIfNeeded() {

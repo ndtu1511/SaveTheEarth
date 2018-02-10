@@ -23,14 +23,14 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
         this.position.set(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2);
         this.imageRenderer = new ImageRenderer(Constant.TheEarth.PATH);
         this.earthHP = new EarthHP(5);
-        this.boxCollider = new BoxCollider(50,50);
+        this.boxCollider = new BoxCollider(30,30);
         this.renderer = this.imageRenderer;
     }
 
     @Override
     public void run() {
         super.run();
-        this.boxCollider.position.set(this.position);
+        this.boxCollider.position.set(this.position.x,this.position.y-15);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
 
     @Override
     public void getHit(GameObject gameObject) {
-        this.isAlive = this.earthHP.run();
+//        this.isAlive = this.earthHP.run();
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEarth.wav");
 //        this.clip.start();
     }

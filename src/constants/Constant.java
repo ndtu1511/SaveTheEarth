@@ -39,6 +39,9 @@ public class Constant {
                 "resources/get_hit_animation/hitAni09.png"
         };
     }
+    public static class UFO{
+        public static final String PATH = "resources/ufo/ufo3.png";
+    }
 //    public static class Enemy{
 //        public static final int WAIT_Frame_COUNTER;
 //        public static final constants.Enemy RESOURCES;
