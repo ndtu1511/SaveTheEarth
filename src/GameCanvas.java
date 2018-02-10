@@ -6,7 +6,6 @@ import game.background.Suction;
 import game.canon.Cannon;
 import game.earth.Earth;
 import game.meteorite.MeteoriteBorn;
-import game.meteorite_medium.MeteoriteMediumBorn;
 
 import javax.sound.sampled.Clip;
 import javax.swing.*;
@@ -20,7 +19,6 @@ public class GameCanvas extends JPanel{
     BufferedImage meteorite;
     Graphics graphics;
     Random random;
-    Clip clip;
     public GameCanvas(){
         this.setSize(Constant.Windows.WIDTH,Constant.Windows.HEIGHT);
         this.setVisible(true);
@@ -46,8 +44,6 @@ public class GameCanvas extends JPanel{
     }
     private void setupMeteoriteBorn(){
         GameObjectManager.instance.recycle(MeteoriteBorn.class);
-        GameObjectManager.instance.recycle(MeteoriteMediumBorn.class);
-
     }
     private void setupCannon(){
         GameObjectManager.instance.recycle(Cannon.class);
