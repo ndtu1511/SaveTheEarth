@@ -11,6 +11,8 @@ import core.GameObjectManager;
 import game.meteorite.DeadAni;
 import game.ufo.Rocket;
 import hit.HitObject;
+import scene.ReplayScreen;
+import scene.SceneManager;
 import utils.AudioUtils;
 
 import javax.sound.sampled.Clip;
@@ -51,6 +53,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
             deadAni.renderer = new AnimationRenderer(false, 5, Constant.TheEarth.PATH_DEAD);
             deadAni.position.set(this.position);
             deadAni.run();
+            SceneManager.instance.changeScene(new ReplayScreen());
         }
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEarth.wav");
 //        this.clip.start();
