@@ -13,7 +13,7 @@ public class RunScore extends GameObject implements PhysicBody, HitObject {
     @Override
     public void run(){
         super.run();
-        this.score.paintComponent(graphics);
+//        this.score.paintComponent(graphics);
     }
 
     @Override

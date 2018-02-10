@@ -5,6 +5,7 @@ import core.FrameCounter;
 import core.GameObject;
 import core.GameObjectManager;
 import core.Vector2D;
+import game.earth.Score;
 import game.ufo.Rocket;
 import game.ufo.Ufo;
 
@@ -89,6 +90,7 @@ public class MeteoriteBorn extends GameObject {
                 if (countMeteoSmall==200)return true;
                 int rd = random.nextInt(4)+1;
                 Meteorite meteorite = GameObjectManager.instance.recycle(Meteorite.class);
+                Score.highScore++;
                 if (rd == 1) {
                     meteorite.position.set(new Vector2D(5, random.nextInt(790) + 5));
                     meteorite.velocity.set(new Vector2D(random.nextInt(maxvelocity+1),
@@ -123,6 +125,7 @@ public class MeteoriteBorn extends GameObject {
                 if (countMeteoMedium==50) return true;
                 int rd = random.nextInt(4)+1;
                 MeteoMedium meteorite = GameObjectManager.instance.recycle(MeteoMedium.class);
+                Score.highScore++;
                 if (rd == 1) {
                     meteorite.position.set(new Vector2D(5, random.nextInt(790) + 5));
                     meteorite.velocity.set(new Vector2D(random.nextInt(maxvelocity+1),
@@ -155,6 +158,7 @@ public class MeteoriteBorn extends GameObject {
             public boolean run(GameObject ownner) {
                 if (countUfo==10) return true;
                 Ufo ufo = GameObjectManager.instance.recycle(Ufo.class);
+                Score.highScore++;
                 int rUfo = random.nextInt(4);
                 if (rUfo==0){
                     ufo.position.set(random.nextInt(200)+50,20.0f);

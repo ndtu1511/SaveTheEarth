@@ -8,6 +8,8 @@ import core.Vector2D;
 import Physic.BoxCollider;
 import Physic.PhysicBody;
 import Renderer.ImageRenderer;
+import game.earth.Score;
+import game.ufo.Rocket;
 import hit.HitObject;
 
 import javax.swing.*;
@@ -47,30 +49,11 @@ public class Meteorite extends GameObject implements PhysicBody, HitObject{
     @Override
     public void getHit(GameObject gameObject) {
         this.isAlive=false;
+        Score.highScore += 10;
         DeadAni deadAni = GameObjectManager.instance.recycle(DeadAni.class);
         deadAni.position.set(this.position);
         deadAni.run();
 //        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
 //        this.clip.start();
     }
-    public void doDrawing(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-
-        RenderingHints rh =
-                new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON);
-
-        rh.put(RenderingHints.KEY_RENDERING,
-                RenderingHints.VALUE_RENDER_QUALITY);
-
-        g2d.setRenderingHints(rh);
-
-        g2d.setFont(new Font("NewellsHand", Font.ITALIC, 30));
-        g2d.setColor(Color.white);
-        g2d.drawString(String.valueOf(highScore), 660, 30);
-    }
-    public void plusScore(){
-        this.highScore +=10;
-    }
-
 }
