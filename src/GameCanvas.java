@@ -8,6 +8,7 @@ import game.earth.Earth;
 import game.earth.EarthHP;
 import game.earth.Score;
 import game.meteorite.MeteoriteBorn;
+import utils.AudioUtils;
 //import game.meteorite_medium.MeteoriteMediumBorn;
 
 import javax.sound.sampled.Clip;
@@ -37,7 +38,7 @@ public class GameCanvas extends JPanel{
         this.setupCrossHair();
         this.earthHP = new EarthHP();
 
-//        this.setupsoundBackGround();
+        this.setupsoundBackGround();
     }
     private void setupBackBuffer(){
         this.backBuffered = new BufferedImage(Constant.Windows.WIDTH,Constant.Windows.HEIGHT,BufferedImage.TYPE_4BYTE_ABGR);
@@ -62,11 +63,11 @@ public class GameCanvas extends JPanel{
     private void setupCrossHair(){
         GameObjectManager.instance.recycle(CrossHair.class);
     }
-//    private void setupsoundBackGround() {
-//        this.clip = AudioUtils.instance.loadSound("resources/sound/bgm/nhacnenn.wav");
-//        this.clip.loop(-1);
-//        this.clip.start();
-//    }
+    private void setupsoundBackGround() {
+        this.clip = AudioUtils.instance.loadSound("resources/sound/bgm/nhacnenn.wav");
+        this.clip.loop(-1);
+        this.clip.start();
+    }
     @Override
     protected void paintComponent(Graphics g) {
         g.drawImage(this.backBuffered,0,0,null);

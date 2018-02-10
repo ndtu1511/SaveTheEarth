@@ -8,16 +8,22 @@ import core.GameObjectManager;
 import core.Vector2D;
 import game.meteorite.DeadAni;
 import hit.HitObject;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class Rocket extends GameObject implements PhysicBody, HitObject {
     public Vector2D velocity;
     public BoxCollider boxCollider;
     private RocketHit rocketHit;
+    private Clip clip;
     public Rocket() {
         this.renderer = new ImageRenderer("resources/rocket/rocket_up.png");
+
         this.velocity = new Vector2D();
         this.boxCollider = new BoxCollider(18,38);
         this.rocketHit = new RocketHit();
+
     }
 
     @Override
@@ -27,6 +33,7 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
         this.position.addUp(velocity);
         this.boxCollider.position.set(this.position);
         this.rocketHit.run(this);
+
     }
 
     @Override
@@ -40,5 +47,9 @@ public class Rocket extends GameObject implements PhysicBody, HitObject {
         DeadAni deadAni = GameObjectManager.instance.recycle(DeadAni.class);
         deadAni.position.set(this.position);
         deadAni.run();
+
+        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/explosiveEnemy.wav");
+        this.clip.start();
+
     }
 }

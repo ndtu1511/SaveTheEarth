@@ -29,7 +29,6 @@ public class Constant {
                 "resources/end_game_animation/ani12.png",
                 "resources/end_game_animation/ani13.png",
                 "resources/end_game_animation/ani14.png",
-                "resources/end_game_animation/ani15.png"
         };
     }
     public static class Cannon{

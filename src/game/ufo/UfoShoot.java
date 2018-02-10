@@ -4,16 +4,23 @@ import Physic.BoxCollider;
 import Renderer.ImageRenderer;
 import core.GameObject;
 import core.GameObjectManager;
+import utils.AudioUtils;
+
+import javax.sound.sampled.Clip;
 
 public class UfoShoot {
     private boolean shooted;
+    private Clip clip;
     public UfoShoot() {
         this.shooted=false;
+        this.clip = AudioUtils.instance.loadSound("resources/Sound/sfx/rocket (online-audio-converter.com).wav");
     }
 
     public void run(Ufo ufo){
         if (ufo.position.x<=400 && ufo.position.x>=398 &&!this.shooted){
             Rocket rocket = GameObjectManager.instance.recycle(Rocket.class);
+            this.clip.loop(1);
+            this.clip.start();
             rocket.position.set(ufo.position);
             rocket.boxCollider = new BoxCollider(18,38);
             if (ufo.position.y<=400) {
