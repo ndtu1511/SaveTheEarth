@@ -9,11 +9,11 @@ public class ReplayButton extends PlayButton {
 
     public ReplayButton() {
         imageRenderer = new ImageRenderer("resources/replay_icon/replay.png");
-        imageRenderer2 = new ImageRenderer("asset-geoarcade-master/resources/ui/replay_hover.png");
+        imageRenderer2 = new ImageRenderer("resources/replay_icon/replay2.png");
         this.renderer = imageRenderer;
 
         this.boxCollider = new BoxCollider(200,200);
-        this.position.set(400,500);
+        this.position.set(400,400);
         this.boxCollider.position.set(this.position);
     }
 

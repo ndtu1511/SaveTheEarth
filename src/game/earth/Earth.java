@@ -28,7 +28,7 @@ public class Earth extends GameObject implements PhysicBody, HitObject{
     public Earth() {
         this.position.set(Constant.Windows.WIDTH/2,Constant.Windows.HEIGHT/2);
         this.imageRenderer = new ImageRenderer(Constant.TheEarth.PATH);
-        this.earthHP = new EarthHP(1);
+        this.earthHP = new EarthHP(5);
         this.boxCollider = new BoxCollider(30,30);
         this.renderer = this.imageRenderer;
     }
