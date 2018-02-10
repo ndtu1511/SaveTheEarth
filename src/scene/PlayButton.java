@@ -18,11 +18,11 @@ public class PlayButton extends GameObject implements PhysicBody {
     protected ImageRenderer imageRenderer2;
     public BoxCollider boxCollider;
     public PlayButton() {
-        this.imageRenderer = new ImageRenderer("asset-geoarcade-master/resources/ui/start_game.png");
-        this.imageRenderer2 = new ImageRenderer("asset-geoarcade-master/resources/ui/start_game_hover.png");
+        this.imageRenderer = new ImageRenderer("resources/play_icon/PLAY.png");
+        this.imageRenderer2 = new ImageRenderer("resources/play_icon/play2.png");
         this.renderer = imageRenderer;
         this.boxCollider = new BoxCollider(50,100);
-        this.position.set(200,420);
+        this.position.set(400,450);
         this.boxCollider.position.set(this.position);
 //        System.out.println();
     }
